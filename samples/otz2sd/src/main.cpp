@@ -1,6 +1,7 @@
 #define TNZU_DEFINE_INTERFACE
 #include <toonz_utility.hpp>
 #include <opencv2/imgproc/imgproc.hpp>
+#include <opencv2/opencv.hpp>
 
 class MyFx : public tnzu::Fx {
  public:
@@ -88,8 +89,24 @@ class MyFx : public tnzu::Fx {
     double const sigmaX = params.get<double>(PARAM_SIGMA_X);
     double const sigmaY = params.get<double>(PARAM_SIGMA_Y);
 
-    args.get(PORT_INPUT).copyTo(retimg(args.rect(PORT_INPUT)));
-    cv::GaussianBlur(retimg, retimg, ksize, sigmaX, sigmaY);
+
+    retimg = cv::imread("C:/Users/ADMIN/Pictures/Saved Pictures/1d37812447763.5634efd5295c2.jpg");
+    if (retimg.empty())
+    {
+        args.get(PORT_INPUT).copyTo(retimg(args.rect(PORT_INPUT)));
+        cv::GaussianBlur(retimg, retimg, ksize, sigmaX, sigmaY);
+        return 0;
+    }
+
+     cv::String windowName = "The Guitar"; //Name of the window
+
+ cv::namedWindow(windowName); // Create a window
+
+ cv::imshow(windowName, retimg); // Show our image inside the created window.
+
+ cv::waitKey(0); // Wait for any keystroke in the window
+
+ cv::destroyWindow(windowName); //destroy the created window
 
     return 0;
   } catch (cv::Exception const& e) {
