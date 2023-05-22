@@ -1,4 +1,5 @@
 cmake_minimum_required(VERSION 2.4)
+set(OpenCV_DIR "../../../opencv4.5.1/build")
 project(opentoonz_plugin_utility_samples)
 
 if(WIN32)

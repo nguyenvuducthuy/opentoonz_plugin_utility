@@ -37,3 +37,6 @@ lib
 *.exe
 *.out
 *.app
+
+build/
+bin/

@@ -1,4 +1,5 @@
 cmake_minimum_required(VERSION 2.4)
+set(OpenCV_DIR "../../opencv4.5.1/build")
 cmake_policy(SET CMP0015 NEW)
 project(opentoonz_plugin_utility)
 
