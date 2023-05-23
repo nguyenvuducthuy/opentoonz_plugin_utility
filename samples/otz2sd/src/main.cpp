@@ -98,15 +98,11 @@ class MyFx : public tnzu::Fx {
         return 0;
     }
 
-     cv::String windowName = "The Guitar"; //Name of the window
-
- cv::namedWindow(windowName); // Create a window
-
- cv::imshow(windowName, retimg); // Show our image inside the created window.
-
- cv::waitKey(0); // Wait for any keystroke in the window
-
- cv::destroyWindow(windowName); //destroy the created window
+    cv::String windowName = "The Guitar"; //Name of the window
+    cv::namedWindow(windowName); // Create a window
+    cv::imshow(windowName, retimg); // Show our image inside the created window.
+    cv::waitKey(0); // Wait for any keystroke in the window
+    cv::destroyWindow(windowName); //destroy the created window
 
     return 0;
   } catch (cv::Exception const& e) {
